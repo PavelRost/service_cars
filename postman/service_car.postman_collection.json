@@ -1,0 +1,395 @@
+{
+	"info": {
+		"_postman_id": "bf93ef3a-8f1c-4610-a269-a657d174c900",
+		"name": "service_car",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Детали",
+			"item": [
+				{
+					"name": "Создать деталь",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/detail/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"detail",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить все детали",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/detail/findAll?offset&limit=1&direction=asc&sortByField=id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"detail",
+								"findAll"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": null
+								},
+								{
+									"key": "limit",
+									"value": "1"
+								},
+								{
+									"key": "direction",
+									"value": "asc"
+								},
+								{
+									"key": "sortByField",
+									"value": "id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Найти деталь по серийному номеру",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/detail/findBySerialNumber?serialNumber=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"detail",
+								"findBySerialNumber"
+							],
+							"query": [
+								{
+									"key": "serialNumber",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удалить деталь",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/detail/delete?serialNumber=47ad5531-0b68-40fe-8d58-b5fa5a39d462",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"detail",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "serialNumber",
+									"value": "47ad5531-0b68-40fe-8d58-b5fa5a39d462"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Поиск детали по id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/detail/findById?id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"detail",
+								"findById"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Машины",
+			"item": [
+				{
+					"name": "Создать машину",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"vin\":\"New rocket3\",\r\n    \"regNumber\":\"k435tt09\",\r\n    \"manufacturer\":\"BMW\",\r\n    \"details\": [\r\n        {\r\n            \"serialNumber\": \"47ad5531-0b68-40fe-8d58-b5fa5a39d462\"\r\n        }\r\n    ]\r\n} ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/car/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"car",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Обновить данные о машине",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 28,\r\n    \"vin\": \"317-500-499-500\",\r\n    \"regNumber\": \"g700tt50\",\r\n    \"manufacturer\": \"BMW\",\r\n    \"brand\": \"BMW5\",\r\n    \"yearManufacture\": \"2005\",\r\n    \"details\": \r\n    [\r\n        {\r\n            \"serialNumber\": \"47ad5531-0b68-40fe-8d58-b5fa5a39d462\"\r\n        }\r\n    ]\r\n} ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/car/update?id=28",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"car",
+								"update"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "28"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удалить машину",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/car/delete?id=11",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"car",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "11"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить все машины",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/car/findAll?offset=0&limit=5&direction=asc&sortByField=vin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"car",
+								"findAll"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "direction",
+									"value": "asc"
+								},
+								{
+									"key": "sortByField",
+									"value": "vin"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Поиск машины по ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/car/findById?id=25",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"car",
+								"findById"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "25"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Поиск машины по VIN",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/car/findByVin?vin=1234567810",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"car",
+								"findByVin"
+							],
+							"query": [
+								{
+									"key": "vin",
+									"value": "1234567810"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Добавить деталь к машине",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/car/addDetailOnCar?idCar=25&serialNumberDetail=47ad5531-0b68-40fe-8d58-b5fa5a39d462",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"car",
+								"addDetailOnCar"
+							],
+							"query": [
+								{
+									"key": "idCar",
+									"value": "25"
+								},
+								{
+									"key": "serialNumberDetail",
+									"value": "47ad5531-0b68-40fe-8d58-b5fa5a39d462"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удалить деталь с машины",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/car/deleteDetailOnCar?idCar=25&serialNumberDetail=152781cb-b00b-4d4605",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"car",
+								"deleteDetailOnCar"
+							],
+							"query": [
+								{
+									"key": "idCar",
+									"value": "25"
+								},
+								{
+									"key": "serialNumberDetail",
+									"value": "152781cb-b00b-4d4605"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
